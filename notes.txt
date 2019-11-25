@@ -1,0 +1,3 @@
+npm i next react react-dom
+add 'pages' folder
+package-json add run script -> dev: "next"  
