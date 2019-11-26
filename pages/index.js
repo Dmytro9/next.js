@@ -1,4 +1,6 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
+import store from '../store';
+import withRedux from 'next-redux-wrapper'
 
 const Index = () => (
     <Layout title='Home'>
@@ -6,4 +8,4 @@ const Index = () => (
     </Layout>
 )
 
-export default Index;
+export default withRedux(store)(Index);
