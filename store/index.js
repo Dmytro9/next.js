@@ -1,47 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import reducers from './rootReducer';
-
-
-const reducer = (state = initialState, action) => {
-    switch (action.type) {
-      case 'TICK':
-        return {
-          ...state,
-          lastUpdate: action.lastUpdate,
-          light: !!action.light,
-        }
-      case 'INCREMENT':
-        return {
-          ...state,
-          count: state.count + 1,
-        }
-      case 'DECREMENT':
-        return {
-          ...state,
-          count: state.count - 1,
-        }
-      case 'RESET':
-        return {
-          ...state,
-          count: initialState.count,
-        }
-      default:
-        return state
-    }
-  }
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 const initialState = {
-    lastUpdate: 0,
-    light: false,
-    count: 0,
+  foo: ''
+}
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+      case 'FOO':
+          return {...state, foo: action.payload};
+      default:
+          return state
   }
-  
+};
 
-const store = (preloadedState = initialState) => createStore(
-	reducer,
-    preloadedState,
+export const initStore = (initialState) => {
+  return createStore(
+    reducer,
+    initialState,
     composeWithDevTools(applyMiddleware())
-)
-
-export default store;
+  )
+}

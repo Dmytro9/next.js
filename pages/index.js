@@ -1,11 +1,18 @@
 import Layout from '../components/Layout';
-import store from '../store';
+import { initStore } from '../store';
+import {connect} from "react-redux";
 import withRedux from 'next-redux-wrapper'
 
-const Index = () => (
+const Index = ({foo, custom}) => (
     <Layout title='Home'>
-        <p>Welcome to home page</p>
+        <div>Prop from Redux {foo}</div>
+        <div>Prop from getInitialProps {custom}</div>
     </Layout>
 )
 
-export default withRedux(store)(Index);
+Index.getInitialProps = ({store, isServer, pathname, query}) => {
+    store.dispatch({type: 'FOO', payload: 'foo'});
+    return {custom: 'custom'}; 
+  };
+
+  export default connect(state => state)(Index);
