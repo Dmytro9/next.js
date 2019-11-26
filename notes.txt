@@ -1,3 +1,21 @@
+# Server rendering React app 
+
 npm i next react react-dom
 add 'pages' folder
 package-json add run script -> dev: "next"  
+
+no routes just create page corresponding to route ( home -> index.js )
+
+
+# change the port 
+ "scripts": {
+    "dev": "next -p 4000"
+  },
+
+
+# redirect with client side javascript using the history api (not to use link to load all html again)
+import Link from "next/link";
+
+ <Link href='/'>
+    <a>Go to home page</a>
+</Link>
