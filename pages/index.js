@@ -1,18 +1,21 @@
+import React from 'react';
 import Layout from '../components/Layout';
-import { initStore } from '../store';
-import {connect} from "react-redux";
-import withRedux from 'next-redux-wrapper'
+import {useSelector} from "react-redux";
 
-const Index = ({foo, custom}) => (
-    <Layout title='Home'>
-        <div>Prop from Redux {foo}</div>
-        <div>Prop from getInitialProps {custom}</div>
-    </Layout>
-)
+const Index = ({custom}) => {
+    const foo = useSelector((state) => state.foo);
+
+      return (
+        <Layout title='Home'>
+            <div>Prop from Redux {foo}</div>
+            <div>Prop from getInitialProps {custom}</div>
+        </Layout>
+      )
+}
 
 Index.getInitialProps = ({store, isServer, pathname, query}) => {
-    store.dispatch({type: 'FOO', payload: 'foo'});
+    store.dispatch({type: 'FOO', payload: 'sdcsdc'});
     return {custom: 'custom'}; 
   };
 
-  export default connect(state => state)(Index);
+  export default Index;
