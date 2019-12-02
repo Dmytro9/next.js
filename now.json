@@ -1,3 +1,10 @@
 {
-    "type": "static"
+    "version": 2,
+    "name": "next-js",
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build"
+        }
+    ]
 }

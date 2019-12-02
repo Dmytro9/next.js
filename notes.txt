@@ -34,3 +34,29 @@ scripts:
 npm run build
 npm run export 
 npm run deploy 
+
+
+# deployed link
+https://out.dmytropoliuliuk.now.sh/
+
+# deploy with now v2
+script:
+    "now-build": "next build && next export -o dist"
+
+now.json:
+{
+    "version": 2,
+    "name": "next-js",
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@now/static-build"
+        }
+    ]
+}
+
+
+in console cmd - now
+
+# deployed link
+https://next-js.dmytropoliuliuk.now.sh
