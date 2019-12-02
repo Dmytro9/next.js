@@ -5,7 +5,7 @@ import fetch from "isomorphic-unfetch";
 
 export default class About extends Component {
   static async getInitialProps() {
-    const res = await fetch("http://api.github.com/users/Dmytro9");
+    const res = await fetch("https://api.github.com/users/Dmytro9");
     const statusCode = res.status > 200 ? res.status : false;
     const data = await res.json();
     return { user: data, statusCode };

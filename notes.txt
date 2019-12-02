@@ -19,3 +19,18 @@ import Link from "next/link";
  <Link href='/'>
     <a>Go to home page</a>
 </Link>
+
+
+#deploy with now
+npm i -g now
+
+now.json
+
+scripts: 
+    "build": "next build",
+    "export": "next export",
+    "deploy": "cd out && now --public"
+
+npm run build
+npm run export 
+npm run deploy 
